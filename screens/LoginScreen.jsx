@@ -12,13 +12,12 @@ import {
 import Input from "../components/Input";
 import PasswordInput from "../components/PasswordInput";
 
-const RegistrationScreen = () => {
-  const [name, setName] = useState("");
+const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegistration = () => {
-    console.log("Реєстрація", email, password);
+  const handleLogin = () => {
+    console.log("Увійшли", email, password);
   };
 
   return (
@@ -34,8 +33,8 @@ const RegistrationScreen = () => {
                 <Image source={require("../assets/avatar-temp.png")} />
               </View>
 
-              <Text style={styles.title}>Реєстрація</Text>
-              <Input placeholder="Логін" onChangeText={setName} value={name} />
+              <Text style={styles.title}>Увійти</Text>
+
               <Input
                 placeholder="Адреса електронної пошти"
                 onChangeText={setEmail}
@@ -48,17 +47,16 @@ const RegistrationScreen = () => {
                 value={password}
               />
             </View>
-
             <View style={styles.containerBack}></View>
           </View>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
 
       <View style={styles.containerMidddle}>
-        <TouchableOpacity style={styles.button} onPress={handleRegistration}>
-          <Text style={styles.buttonText}>Зареєструватися</Text>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Увійти</Text>
         </TouchableOpacity>
-        <Text style={styles.link}>Вже є акаунт? Увійти</Text>
+        <Text style={styles.link}>Немає акаунту? Зареєструватися</Text>
       </View>
     </View>
   );
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
   },
   containerBack: {
     backgroundColor: "#FFF",
-    height: 570,
+    height: 505,
     position: "absolute",
     bottom: -210,
     width: "100%",
@@ -124,4 +122,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegistrationScreen;
+export default LoginScreen;
