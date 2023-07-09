@@ -5,10 +5,10 @@ import {
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
-  Image,
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import Input from "../components/Input";
 import PasswordInput from "../components/PasswordInput";
 
@@ -18,6 +18,9 @@ const LoginScreen = () => {
 
   const handleLogin = () => {
     console.log("Увійшли", email, password);
+
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -29,8 +32,15 @@ const LoginScreen = () => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
             <View style={styles.containerMidddle}>
-              <View style={styles.avatar}>
-                <Image source={require("../assets/avatar-temp.png")} />
+              <View style={styles.avatarBlock}>
+                <View style={styles.avatar}>
+                  <AntDesign
+                    name="pluscircleo"
+                    size={24}
+                    color="#FF6C00"
+                    style={styles.iconAdd}
+                  />
+                </View>
               </View>
 
               <Text style={styles.title}>Увійти</Text>
@@ -89,10 +99,22 @@ const styles = StyleSheet.create({
   block: {
     flex: 1,
   },
-  avatar: {
+  avatarBlock: {
     alignItems: "center",
     borderRadius: 8,
     marginBottom: 30,
+  },
+  iconAdd: {
+    position: "absolute",
+    bottom: 10,
+    right: -11,
+  },
+  avatar: {
+    width: 120,
+    height: 120,
+    backgroundColor: "#f6f6f6",
+    borderRadius: 12,
+    position: "relative",
   },
   title: {
     fontSize: 30,
